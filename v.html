@@ -1,0 +1,71 @@
+
+<!-- saved from url=(0043)http://videocall.infinityfreeapp.com/v.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+  <script src="./v_files/external_api.js.download"></script>
+<style type="text/css">
+@font-face {
+  font-weight: 400;
+  font-style:  normal;
+  font-family: 'Circular-Loom';
+
+  src: url('chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/fonts/CircularXXWeb-Book.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 500;
+  font-style:  normal;
+  font-family: 'Circular-Loom';
+
+  src: url('chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/fonts/CircularXXWeb-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 700;
+  font-style:  normal;
+  font-family: 'Circular-Loom';
+
+  src: url('chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/fonts/CircularXXWeb-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 900;
+  font-style:  normal;
+  font-family: 'Circular-Loom';
+
+  src: url('chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/fonts/CircularXXWeb-Black.woff2') format('woff2');
+}</style></head>
+<body>
+<p style="text-align:center">
+<button id="start" type="button">Start</button></p>
+<div id="jitsi-container">
+</div>
+
+<script>
+var button = document.querySelector('#start');
+var container = document.querySelector('#jitsi-container');
+var api = null;
+
+button.addEventListener('click', () => {
+    var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var stringLength = 30;
+
+    function pickRandom() {
+    return possible[Math.floor(Math.random() * possible.length)];
+    }
+
+var randomString = Array.apply(null, Array(stringLength)).map(pickRandom).join('');
+
+    var domain = "meet.jit.si";
+    var options = {
+        "roomName": randomString,
+        "parentNode": container,
+        "width": 600,
+        "height": 600,
+    };
+    api = new JitsiMeetExternalAPI(domain, options);
+});
+
+</script>
+
+
+<link rel="stylesheet" type="text/css" href="chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/css/blur.css" class="loom-blur-styles"></body><loom-container id="lo-engage-ext-container"><loom-shadow classname="resolved"></loom-shadow></loom-container><loom-container id="lo-companion-container"><loom-shadow classname="resolved"></loom-shadow></loom-container></html>
